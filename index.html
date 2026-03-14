@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Seth Looper — Designer, researcher, educator. Building tools and workshops that help people make sense of who they are becoming.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <title>Seth Looper</title>
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: #f8f8f8;
+      color: #1a1a1a;
+      min-height: 100vh;
+      padding: 60px 80px;
+    }
+
+    a {
+      color: #1a1a1a;
+      text-decoration: none;
+    }
+
+    /* ========== HEADER ========== */
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 80px;
+    }
+
+    .name {
+      font-size: 32px;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 4px;
+      font-size: 15px;
+      font-weight: 400;
+    }
+
+    .contact-links a {
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-thickness: 1px;
+      transition: opacity 0.2s;
+    }
+
+    .contact-links a:hover {
+      opacity: 0.5;
+    }
+
+    /* ========== MAIN LAYOUT ========== */
+
+    .main {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    /* ========== BIO ========== */
+
+    .bio {
+      font-size: 24px;
+      font-weight: 400;
+      line-height: 1.55;
+      letter-spacing: -0.01em;
+      max-width: 540px;
+      position: sticky;
+      top: 60px;
+    }
+
+    .bio a {
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-thickness: 1px;
+    }
+
+    .bio a:hover {
+      opacity: 0.5;
+    }
+
+    /* ========== PROJECT LIST ========== */
+
+    .project-list {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #999;
+      padding-bottom: 12px;
+      margin-top: 40px;
+    }
+
+    .section-label:first-child {
+      margin-top: 0;
+    }
+
+    .project-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 14px 0;
+      border-bottom: 1px solid #e0e0e0;
+      font-size: 17px;
+      font-weight: 400;
+      transition: opacity 0.2s;
+    }
+
+    .project-row:hover {
+      opacity: 0.5;
+    }
+
+    .project-row a {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      width: 100%;
+    }
+
+    .project-name {
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+    }
+
+    .project-name .arrow {
+      font-size: 13px;
+      opacity: 0;
+      transition: opacity 0.2s, transform 0.2s;
+      transform: translateX(-4px);
+    }
+
+    .project-row:hover .arrow {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .project-sub {
+      font-size: 13px;
+      color: #999;
+      font-weight: 400;
+    }
+
+    .project-year {
+      font-size: 14px;
+      color: #999;
+      font-weight: 400;
+      white-space: nowrap;
+      margin-left: 24px;
+    }
+
+    /* ========== POSITIONS ========== */
+
+    .position-row {
+      padding: 14px 0;
+      border-bottom: 1px solid #e0e0e0;
+      font-size: 17px;
+    }
+
+    .position-title {
+      font-weight: 400;
+    }
+
+    .position-role {
+      font-size: 13px;
+      color: #999;
+      margin-top: 2px;
+    }
+
+    /* ========== FOOTER ========== */
+
+    .footer {
+      margin-top: 120px;
+      font-size: 12px;
+      color: #bbb;
+    }
+
+    /* ========== RESPONSIVE ========== */
+
+    @media (max-width: 900px) {
+      body {
+        padding: 40px 32px;
+      }
+
+      .header {
+        margin-bottom: 48px;
+      }
+
+      .name {
+        font-size: 26px;
+      }
+
+      .main {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+
+      .bio {
+        font-size: 20px;
+        position: static;
+        max-width: 100%;
+      }
+    }
+
+    @media (max-width: 520px) {
+      body {
+        padding: 28px 20px;
+      }
+
+      .header {
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .contact-links {
+        align-items: flex-start;
+        flex-direction: row;
+        gap: 16px;
+        font-size: 14px;
+      }
+
+      .name {
+        font-size: 22px;
+      }
+
+      .bio {
+        font-size: 18px;
+      }
+
+      .project-row {
+        font-size: 15px;
+      }
+
+      .project-year {
+        font-size: 13px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="name">Seth Looper</div>
+    <div class="contact-links">
+      <a href="mailto:seth@looperworks.com">Email</a>
+      <a href="https://www.linkedin.com/in/seth-looper/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://www.instagram.com/looperseth/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://vimeo.com/sethlooper" target="_blank" rel="noopener">Vimeo</a>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <div class="main">
+
+    <!-- BIO -->
+    <div class="bio">
+      I design environments — digital, physical, and conversational — where people slow down and make sense of who they are. Background in architecture and consulting. Now building exploration and decision tools, narrative workshops, and AI-mediated reflection systems. Based at Dartmouth College's Center for Career Design. Teaching at Kent State University. Feel free to <a href="#projects">explore the work</a> and <a href="mailto:seth@looperworks.com">reach out</a> if you'd like to have a conversation.
+    </div>
+
+    <!-- PROJECT LIST -->
+    <div class="project-list" id="projects">
+
+      <!-- PRACTICES -->
+      <div class="section-label">Practices</div>
+
+      <div class="project-row">
+        <a href="https://lo-be-lab.com" target="_blank" rel="noopener">
+          <span class="project-name">Lo/Be Lab <span class="arrow">&#8599;</span></span>
+          <span class="project-year">2024–</span>
+        </a>
+      </div>
+
+      <div class="project-row">
+        <a href="https://lo-be-story.com" target="_blank" rel="noopener">
+          <span class="project-name">Lo/Be Story <span class="arrow">&#8599;</span></span>
+          <span class="project-year">2024–</span>
+        </a>
+      </div>
+
+      <div class="project-row">
+        <a href="https://looperworks.com" target="_blank" rel="noopener">
+          <span class="project-name">LooperWorks <span class="arrow">&#8599;</span></span>
+          <span class="project-year">2019–</span>
+        </a>
+      </div>
+
+      <!-- INTERACTIVE TOOLS -->
+      <div class="section-label">Interactive Tools</div>
+
+      <div class="project-row">
+        <a href="https://www.sethlooper.com/synapse/" target="_blank" rel="noopener">
+          <span class="project-name">Synapse <span class="arrow">&#8599;</span></span>
+          <span class="project-year">2024</span>
+        </a>
+      </div>
+
+      <div class="project-row">
+        <a href="https://www.sethlooper.com/media/narrative-by-design/" target="_blank" rel="noopener">
+          <span class="project-name">Narrative by Design <span class="arrow">&#8599;</span></span>
+          <span class="project-year">2024</span>
+        </a>
+      </div>
+
+      <div class="project-row">
+        <a href="https://lo-be-story.com" target="_blank" rel="noopener">
+          <span class="project-name">OneWord <span class="arrow">&#8599;</span></span>
+          <span class="project-year">2024</span>
+        </a>
+      </div>
+
+      <!-- MEDIA -->
+      <div class="section-label">Media</div>
+
+      <div class="project-row">
+        <a href="https://vimeo.com/sethlooper" target="_blank" rel="noopener">
+          <span class="project-name">How Dots Become Lines <span class="arrow">&#8599;</span></span>
+          <span class="project-year">2024</span>
+        </a>
+      </div>
+
+      <div class="project-row">
+        <a href="https://vimeo.com/sethlooper" target="_blank" rel="noopener">
+          <span class="project-name">Metamorphic <span class="arrow">&#8599;</span></span>
+          <span class="project-year">2024</span>
+        </a>
+      </div>
+
+      <div class="project-row">
+        <a href="https://vimeo.com/sethlooper" target="_blank" rel="noopener">
+          <span class="project-name">Career Design Lab <span class="arrow">&#8599;</span></span>
+          <span class="project-year">2023</span>
+        </a>
+      </div>
+
+      <div class="project-row">
+        <a href="https://vimeo.com/sethlooper" target="_blank" rel="noopener">
+          <span class="project-name">Narrative by Design <span class="project-sub">(film)</span> <span class="arrow">&#8599;</span></span>
+          <span class="project-year">2024</span>
+        </a>
+      </div>
+
+      <!-- POSITIONS -->
+      <div class="section-label">Positions</div>
+
+      <div class="position-row">
+        <div class="position-title">Dartmouth College</div>
+        <div class="position-role">Program Manager, Center for Career Design</div>
+      </div>
+
+      <div class="position-row">
+        <div class="position-title">Kent State University</div>
+        <div class="position-role">Adjunct Faculty</div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    &copy; 2026 Seth Looper
+  </footer>
+
+</body>
+</html>
