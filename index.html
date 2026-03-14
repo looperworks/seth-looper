@@ -107,20 +107,6 @@
       flex-direction: column;
     }
 
-    .section-label {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: #999;
-      padding-bottom: 12px;
-      margin-top: 40px;
-    }
-
-    .section-label:first-child {
-      margin-top: 0;
-    }
-
     .project-row {
       display: flex;
       justify-content: space-between;
@@ -129,11 +115,7 @@
       border-bottom: 1px solid #e0e0e0;
       font-size: 17px;
       font-weight: 400;
-      transition: opacity 0.2s;
-    }
-
-    .project-row:hover {
-      opacity: 0.5;
+      position: relative;
     }
 
     .project-row a {
@@ -141,6 +123,11 @@
       justify-content: space-between;
       align-items: baseline;
       width: 100%;
+      transition: opacity 0.2s;
+    }
+
+    .project-row:hover a {
+      opacity: 0.5;
     }
 
     .project-name {
@@ -157,7 +144,7 @@
     }
 
     .project-row:hover .arrow {
-      opacity: 1;
+      opacity: 0.5;
       transform: translateX(0);
     }
 
@@ -175,22 +162,25 @@
       margin-left: 24px;
     }
 
-    /* ========== POSITIONS ========== */
+    /* ========== HOVER PREVIEW IMAGE ========== */
 
-    .position-row {
-      padding: 14px 0;
-      border-bottom: 1px solid #e0e0e0;
-      font-size: 17px;
+    .preview-img {
+      position: fixed;
+      pointer-events: none;
+      width: 360px;
+      height: 225px;
+      object-fit: cover;
+      border-radius: 6px;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+      opacity: 0;
+      transform: scale(0.95);
+      transition: opacity 0.25s ease, transform 0.25s ease;
+      z-index: 100;
     }
 
-    .position-title {
-      font-weight: 400;
-    }
-
-    .position-role {
-      font-size: 13px;
-      color: #999;
-      margin-top: 2px;
+    .preview-img.visible {
+      opacity: 1;
+      transform: scale(1);
     }
 
     /* ========== FOOTER ========== */
@@ -225,6 +215,10 @@
         font-size: 20px;
         position: static;
         max-width: 100%;
+      }
+
+      .preview-img {
+        display: none;
       }
     }
 
@@ -287,106 +281,128 @@
     <!-- PROJECT LIST -->
     <div class="project-list" id="projects">
 
-      <!-- PRACTICES -->
-      <div class="section-label">Practices</div>
-
-      <div class="project-row">
+      <div class="project-row" data-preview="images/lo-be-lab.jpg">
         <a href="https://lo-be-lab.com" target="_blank" rel="noopener">
           <span class="project-name">Lo/Be Lab <span class="arrow">&#8599;</span></span>
           <span class="project-year">2024–</span>
         </a>
       </div>
 
-      <div class="project-row">
+      <div class="project-row" data-preview="images/lo-be-story.jpg">
         <a href="https://lo-be-story.com" target="_blank" rel="noopener">
           <span class="project-name">Lo/Be Story <span class="arrow">&#8599;</span></span>
           <span class="project-year">2024–</span>
         </a>
       </div>
 
-      <div class="project-row">
+      <div class="project-row" data-preview="images/looperworks.jpg">
         <a href="https://looperworks.com" target="_blank" rel="noopener">
           <span class="project-name">LooperWorks <span class="arrow">&#8599;</span></span>
           <span class="project-year">2019–</span>
         </a>
       </div>
 
-      <!-- INTERACTIVE TOOLS -->
-      <div class="section-label">Interactive Tools</div>
-
-      <div class="project-row">
+      <div class="project-row" data-preview="images/synapse.jpg">
         <a href="https://www.sethlooper.com/synapse/" target="_blank" rel="noopener">
           <span class="project-name">Synapse <span class="arrow">&#8599;</span></span>
           <span class="project-year">2024</span>
         </a>
       </div>
 
-      <div class="project-row">
+      <div class="project-row" data-preview="images/narrative-by-design.jpg">
         <a href="https://www.sethlooper.com/media/narrative-by-design/" target="_blank" rel="noopener">
           <span class="project-name">Narrative by Design <span class="arrow">&#8599;</span></span>
           <span class="project-year">2024</span>
         </a>
       </div>
 
-      <div class="project-row">
+      <div class="project-row" data-preview="images/lo-be-story.jpg">
         <a href="https://lo-be-story.com" target="_blank" rel="noopener">
           <span class="project-name">OneWord <span class="arrow">&#8599;</span></span>
           <span class="project-year">2024</span>
         </a>
       </div>
 
-      <!-- MEDIA -->
-      <div class="section-label">Media</div>
-
-      <div class="project-row">
+      <div class="project-row" data-preview="images/vimeo.jpg">
         <a href="https://vimeo.com/sethlooper" target="_blank" rel="noopener">
           <span class="project-name">How Dots Become Lines <span class="arrow">&#8599;</span></span>
           <span class="project-year">2024</span>
         </a>
       </div>
 
-      <div class="project-row">
+      <div class="project-row" data-preview="images/vimeo.jpg">
         <a href="https://vimeo.com/sethlooper" target="_blank" rel="noopener">
           <span class="project-name">Metamorphic <span class="arrow">&#8599;</span></span>
           <span class="project-year">2024</span>
         </a>
       </div>
 
-      <div class="project-row">
+      <div class="project-row" data-preview="images/vimeo.jpg">
         <a href="https://vimeo.com/sethlooper" target="_blank" rel="noopener">
-          <span class="project-name">Career Design Lab <span class="arrow">&#8599;</span></span>
+          <span class="project-name">Career Design Lab <span class="project-sub">(film)</span> <span class="arrow">&#8599;</span></span>
           <span class="project-year">2023</span>
         </a>
       </div>
 
-      <div class="project-row">
+      <div class="project-row" data-preview="images/vimeo.jpg">
         <a href="https://vimeo.com/sethlooper" target="_blank" rel="noopener">
           <span class="project-name">Narrative by Design <span class="project-sub">(film)</span> <span class="arrow">&#8599;</span></span>
           <span class="project-year">2024</span>
         </a>
       </div>
 
-      <!-- POSITIONS -->
-      <div class="section-label">Positions</div>
-
-      <div class="position-row">
-        <div class="position-title">Dartmouth College</div>
-        <div class="position-role">Program Manager, Center for Career Design</div>
+      <div class="project-row">
+        <span class="project-name">Dartmouth College</span>
+        <span class="project-year" style="color: #1a1a1a;">Program Manager, Center for Career Design</span>
       </div>
 
-      <div class="position-row">
-        <div class="position-title">Kent State University</div>
-        <div class="position-role">Adjunct Faculty</div>
+      <div class="project-row">
+        <span class="project-name">Kent State University</span>
+        <span class="project-year" style="color: #1a1a1a;">Adjunct Faculty</span>
       </div>
 
     </div>
 
   </div>
 
+  <!-- HOVER PREVIEW -->
+  <img class="preview-img" id="previewImg" src="" alt="">
+
   <!-- FOOTER -->
   <footer class="footer">
     &copy; 2026 Seth Looper
   </footer>
+
+  <script>
+    const preview = document.getElementById('previewImg');
+    const rows = document.querySelectorAll('.project-row[data-preview]');
+    let currentSrc = '';
+
+    rows.forEach(row => {
+      row.addEventListener('mouseenter', () => {
+        const src = row.getAttribute('data-preview');
+        if (src !== currentSrc) {
+          preview.src = src;
+          currentSrc = src;
+        }
+        preview.classList.add('visible');
+      });
+
+      row.addEventListener('mouseleave', () => {
+        preview.classList.remove('visible');
+      });
+
+      row.addEventListener('mousemove', (e) => {
+        const x = e.clientX + 24;
+        const y = e.clientY - 120;
+        // Keep image within viewport
+        const maxX = window.innerWidth - 384;
+        const maxY = window.innerHeight - 250;
+        preview.style.left = Math.min(x, maxX) + 'px';
+        preview.style.top = Math.max(12, Math.min(y, maxY)) + 'px';
+      });
+    });
+  </script>
 
 </body>
 </html>
