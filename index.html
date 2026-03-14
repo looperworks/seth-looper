@@ -194,10 +194,53 @@
       transform: translateY(0);
     }
 
+    /* ========== IMAGE GALLERY (masonry collage) ========== */
+
+    .gallery-section {
+      margin-top: 100px;
+      padding-top: 60px;
+    }
+
+    .gallery {
+      columns: 4;
+      column-gap: 12px;
+    }
+
+    .gallery img {
+      width: 100%;
+      display: block;
+      margin-bottom: 12px;
+      border-radius: 4px;
+      transition: transform 0.3s ease, filter 0.3s ease;
+      cursor: pointer;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.02);
+      filter: brightness(1.08);
+    }
+
+    @media (max-width: 900px) {
+      .gallery {
+        columns: 3;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .gallery {
+        columns: 2;
+        column-gap: 8px;
+      }
+
+      .gallery img {
+        margin-bottom: 8px;
+      }
+    }
+
     /* ========== FOOTER ========== */
 
     .footer {
-      margin-top: 120px;
+      margin-top: 80px;
       font-size: 12px;
       color: #bbb;
     }
@@ -380,19 +423,51 @@
         </a>
       </div>
 
-      <div class="project-row">
-        <span class="project-name">Dartmouth College</span>
-        <span class="project-year" style="color: #1a1a1a;">Program Manager, Center for Career Design</span>
+      <div class="project-row" data-preview="images/dartmouth.jpg">
+        <a href="https://students.dartmouth.edu/career-services/" target="_blank" rel="noopener">
+          <span class="project-name">Dartmouth College <span class="project-sub">— Center for Career Design</span> <span class="arrow">&#8599;</span></span>
+        </a>
       </div>
 
-      <div class="project-row">
-        <span class="project-name">Kent State University</span>
-        <span class="project-year" style="color: #1a1a1a;">Adjunct Faculty</span>
+      <div class="project-row" data-preview="images/kent-state.jpg">
+        <a href="https://www.kent.edu/caed/architecture" target="_blank" rel="noopener">
+          <span class="project-name">Kent State University <span class="project-sub">— School of Architecture</span> <span class="arrow">&#8599;</span></span>
+        </a>
       </div>
 
     </div>
 
   </div>
+
+  <!-- IMAGE GALLERY -->
+  <section class="gallery-section">
+    <div class="gallery">
+      <a href="https://www.instagram.com/looperseth/" target="_blank" rel="noopener"><img src="images/gallery/insta-01.jpg" alt="" loading="lazy"></a>
+      <a href="https://www.instagram.com/looperseth/" target="_blank" rel="noopener"><img src="images/gallery/insta-02.jpg" alt="" loading="lazy"></a>
+      <a href="https://www.instagram.com/looperseth/" target="_blank" rel="noopener"><img src="images/gallery/insta-03.jpg" alt="" loading="lazy"></a>
+      <a href="https://www.instagram.com/looperseth/" target="_blank" rel="noopener"><img src="images/gallery/insta-04.jpg" alt="" loading="lazy"></a>
+      <a href="https://www.instagram.com/looperseth/" target="_blank" rel="noopener"><img src="images/gallery/insta-05.jpg" alt="" loading="lazy"></a>
+      <a href="https://www.instagram.com/looperseth/" target="_blank" rel="noopener"><img src="images/gallery/insta-06.jpg" alt="" loading="lazy"></a>
+      <a href="https://www.instagram.com/looperseth/" target="_blank" rel="noopener"><img src="images/gallery/insta-07.jpg" alt="" loading="lazy"></a>
+      <a href="https://www.instagram.com/looperseth/" target="_blank" rel="noopener"><img src="images/gallery/insta-08.jpg" alt="" loading="lazy"></a>
+      <a href="https://www.instagram.com/looperseth/" target="_blank" rel="noopener"><img src="images/gallery/insta-09.jpg" alt="" loading="lazy"></a>
+      <a href="https://www.instagram.com/looperseth/" target="_blank" rel="noopener"><img src="images/gallery/insta-10.jpg" alt="" loading="lazy"></a>
+      <a href="https://www.instagram.com/looperseth/" target="_blank" rel="noopener"><img src="images/gallery/insta-11.jpg" alt="" loading="lazy"></a>
+      <a href="https://www.instagram.com/looperseth/" target="_blank" rel="noopener"><img src="images/gallery/insta-12.jpg" alt="" loading="lazy"></a>
+      <a href="https://www.instagram.com/looperseth/" target="_blank" rel="noopener"><img src="images/gallery/insta-13.jpg" alt="" loading="lazy"></a>
+      <a href="https://www.instagram.com/looperseth/" target="_blank" rel="noopener"><img src="images/gallery/insta-14.jpg" alt="" loading="lazy"></a>
+      <a href="https://www.instagram.com/looperseth/" target="_blank" rel="noopener"><img src="images/gallery/insta-15.jpg" alt="" loading="lazy"></a>
+      <a href="https://www.instagram.com/looperseth/" target="_blank" rel="noopener"><img src="images/gallery/insta-16.jpg" alt="" loading="lazy"></a>
+      <a href="https://www.instagram.com/looperseth/" target="_blank" rel="noopener"><img src="images/gallery/insta-17.jpg" alt="" loading="lazy"></a>
+      <a href="https://www.instagram.com/looperseth/" target="_blank" rel="noopener"><img src="images/gallery/insta-18.jpg" alt="" loading="lazy"></a>
+      <a href="https://www.instagram.com/looperseth/" target="_blank" rel="noopener"><img src="images/gallery/insta-19.jpg" alt="" loading="lazy"></a>
+      <a href="https://www.instagram.com/looperseth/" target="_blank" rel="noopener"><img src="images/gallery/insta-20.jpg" alt="" loading="lazy"></a>
+      <a href="https://www.instagram.com/looperseth/" target="_blank" rel="noopener"><img src="images/gallery/insta-21.jpg" alt="" loading="lazy"></a>
+      <a href="https://www.instagram.com/looperseth/" target="_blank" rel="noopener"><img src="images/gallery/insta-22.jpg" alt="" loading="lazy"></a>
+      <a href="https://www.instagram.com/looperseth/" target="_blank" rel="noopener"><img src="images/gallery/insta-23.jpg" alt="" loading="lazy"></a>
+      <a href="https://www.instagram.com/looperseth/" target="_blank" rel="noopener"><img src="images/gallery/insta-24.jpg" alt="" loading="lazy"></a>
+    </div>
+  </section>
 
   <!-- FOOTER -->
   <footer class="footer">
