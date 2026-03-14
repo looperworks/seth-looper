@@ -206,23 +206,69 @@
       column-gap: 12px;
     }
 
-    .gallery img {
+    .gallery-item {
+      position: relative;
+      display: inline-block;
       width: 100%;
-      display: block;
       margin-bottom: 12px;
+      break-inside: avoid;
+      overflow: hidden;
       border-radius: 4px;
-      transition: transform 0.3s ease, filter 0.3s ease;
       cursor: pointer;
     }
 
-    .gallery img:hover {
-      transform: scale(1.02);
-      filter: brightness(1.08);
+    .gallery-item img {
+      width: 100%;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .gallery-item .overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(248, 248, 248, 0.88);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .gallery-item:hover .overlay {
+      opacity: 1;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.03);
+    }
+
+    .overlay-title {
+      font-size: 20px;
+      font-weight: 500;
+      color: #1a1a1a;
+      margin-bottom: 6px;
+    }
+
+    .overlay-desc {
+      font-size: 15px;
+      color: #777;
+      font-weight: 400;
     }
 
     @media (max-width: 900px) {
       .gallery {
         columns: 3;
+      }
+
+      .overlay-title {
+        font-size: 16px;
+      }
+
+      .overlay-desc {
+        font-size: 13px;
       }
     }
 
@@ -232,8 +278,16 @@
         column-gap: 8px;
       }
 
-      .gallery img {
+      .gallery-item {
         margin-bottom: 8px;
+      }
+
+      .overlay-title {
+        font-size: 14px;
+      }
+
+      .overlay-desc {
+        font-size: 12px;
       }
     }
 
@@ -442,30 +496,229 @@
   <!-- IMAGE GALLERY -->
   <section class="gallery-section">
     <div class="gallery">
-      <a href="https://www.instagram.com/looperseth/" target="_blank" rel="noopener"><img src="images/gallery/insta-01.jpg" alt="" loading="lazy"></a>
-      <a href="https://www.instagram.com/looperseth/" target="_blank" rel="noopener"><img src="images/gallery/insta-02.jpg" alt="" loading="lazy"></a>
-      <a href="https://www.instagram.com/looperseth/" target="_blank" rel="noopener"><img src="images/gallery/insta-03.jpg" alt="" loading="lazy"></a>
-      <a href="https://www.instagram.com/looperseth/" target="_blank" rel="noopener"><img src="images/gallery/insta-04.jpg" alt="" loading="lazy"></a>
-      <a href="https://www.instagram.com/looperseth/" target="_blank" rel="noopener"><img src="images/gallery/insta-05.jpg" alt="" loading="lazy"></a>
-      <a href="https://www.instagram.com/looperseth/" target="_blank" rel="noopener"><img src="images/gallery/insta-06.jpg" alt="" loading="lazy"></a>
-      <a href="https://www.instagram.com/looperseth/" target="_blank" rel="noopener"><img src="images/gallery/insta-07.jpg" alt="" loading="lazy"></a>
-      <a href="https://www.instagram.com/looperseth/" target="_blank" rel="noopener"><img src="images/gallery/insta-08.jpg" alt="" loading="lazy"></a>
-      <a href="https://www.instagram.com/looperseth/" target="_blank" rel="noopener"><img src="images/gallery/insta-09.jpg" alt="" loading="lazy"></a>
-      <a href="https://www.instagram.com/looperseth/" target="_blank" rel="noopener"><img src="images/gallery/insta-10.jpg" alt="" loading="lazy"></a>
-      <a href="https://www.instagram.com/looperseth/" target="_blank" rel="noopener"><img src="images/gallery/insta-11.jpg" alt="" loading="lazy"></a>
-      <a href="https://www.instagram.com/looperseth/" target="_blank" rel="noopener"><img src="images/gallery/insta-12.jpg" alt="" loading="lazy"></a>
-      <a href="https://www.instagram.com/looperseth/" target="_blank" rel="noopener"><img src="images/gallery/insta-13.jpg" alt="" loading="lazy"></a>
-      <a href="https://www.instagram.com/looperseth/" target="_blank" rel="noopener"><img src="images/gallery/insta-14.jpg" alt="" loading="lazy"></a>
-      <a href="https://www.instagram.com/looperseth/" target="_blank" rel="noopener"><img src="images/gallery/insta-15.jpg" alt="" loading="lazy"></a>
-      <a href="https://www.instagram.com/looperseth/" target="_blank" rel="noopener"><img src="images/gallery/insta-16.jpg" alt="" loading="lazy"></a>
-      <a href="https://www.instagram.com/looperseth/" target="_blank" rel="noopener"><img src="images/gallery/insta-17.jpg" alt="" loading="lazy"></a>
-      <a href="https://www.instagram.com/looperseth/" target="_blank" rel="noopener"><img src="images/gallery/insta-18.jpg" alt="" loading="lazy"></a>
-      <a href="https://www.instagram.com/looperseth/" target="_blank" rel="noopener"><img src="images/gallery/insta-19.jpg" alt="" loading="lazy"></a>
-      <a href="https://www.instagram.com/looperseth/" target="_blank" rel="noopener"><img src="images/gallery/insta-20.jpg" alt="" loading="lazy"></a>
-      <a href="https://www.instagram.com/looperseth/" target="_blank" rel="noopener"><img src="images/gallery/insta-21.jpg" alt="" loading="lazy"></a>
-      <a href="https://www.instagram.com/looperseth/" target="_blank" rel="noopener"><img src="images/gallery/insta-22.jpg" alt="" loading="lazy"></a>
-      <a href="https://www.instagram.com/looperseth/" target="_blank" rel="noopener"><img src="images/gallery/insta-23.jpg" alt="" loading="lazy"></a>
-      <a href="https://www.instagram.com/looperseth/" target="_blank" rel="noopener"><img src="images/gallery/insta-24.jpg" alt="" loading="lazy"></a>
+
+      <!-- Lo/Be Lab -->
+      <a class="gallery-item" href="https://lo-be-lab.com" target="_blank" rel="noopener">
+        <img src="images/gallery/proj-lo-be-lab.jpg" alt="Lo/Be Lab" loading="lazy">
+        <div class="overlay"><span class="overlay-title">Lo/Be Lab</span><span class="overlay-desc">Design-based research practice</span></div>
+      </a>
+
+      <a class="gallery-item" href="https://www.instagram.com/looperseth/" target="_blank" rel="noopener">
+        <img src="images/gallery/insta-01.jpg" alt="" loading="lazy">
+        <div class="overlay"><span class="overlay-title">@looperseth</span><span class="overlay-desc">Hanover, NH</span></div>
+      </a>
+
+      <!-- DartWorld -->
+      <a class="gallery-item" href="https://lo-be-lab.com/work/dartworld.html" target="_blank" rel="noopener">
+        <img src="images/gallery/dartworld-dashboard.png" alt="DartWorld Dashboard" loading="lazy">
+        <div class="overlay"><span class="overlay-title">DartWorld</span><span class="overlay-desc">Interactive career exploration</span></div>
+      </a>
+
+      <a class="gallery-item" href="https://www.instagram.com/looperseth/" target="_blank" rel="noopener">
+        <img src="images/gallery/insta-02.jpg" alt="" loading="lazy">
+        <div class="overlay"><span class="overlay-title">@looperseth</span><span class="overlay-desc">Hopkins Center for the Arts</span></div>
+      </a>
+
+      <!-- Synapse -->
+      <a class="gallery-item" href="https://www.sethlooper.com/synapse/" target="_blank" rel="noopener">
+        <img src="images/gallery/proj-synapse.jpg" alt="Synapse" loading="lazy">
+        <div class="overlay"><span class="overlay-title">Synapse</span><span class="overlay-desc">AI-mediated reflection tool</span></div>
+      </a>
+
+      <a class="gallery-item" href="https://www.instagram.com/looperseth/" target="_blank" rel="noopener">
+        <img src="images/gallery/insta-03.jpg" alt="" loading="lazy">
+        <div class="overlay"><span class="overlay-title">@looperseth</span><span class="overlay-desc">Dartmouth College</span></div>
+      </a>
+
+      <!-- Lo/Be Story -->
+      <a class="gallery-item" href="https://lo-be-story.com" target="_blank" rel="noopener">
+        <img src="images/gallery/proj-lo-be-story.jpg" alt="Lo/Be Story" loading="lazy">
+        <div class="overlay"><span class="overlay-title">Lo/Be Story</span><span class="overlay-desc">Narrative design service</span></div>
+      </a>
+
+      <!-- DartWorld Village -->
+      <a class="gallery-item" href="https://lo-be-lab.com/work/dartworld.html" target="_blank" rel="noopener">
+        <img src="images/gallery/dartworld-village.png" alt="DartWorld Village" loading="lazy">
+        <div class="overlay"><span class="overlay-title">DartWorld</span><span class="overlay-desc">Virtual campus village</span></div>
+      </a>
+
+      <a class="gallery-item" href="https://www.instagram.com/looperseth/" target="_blank" rel="noopener">
+        <img src="images/gallery/insta-04.jpg" alt="" loading="lazy">
+        <div class="overlay"><span class="overlay-title">@looperseth</span><span class="overlay-desc">Dartmouth College</span></div>
+      </a>
+
+      <!-- Narrative by Design -->
+      <a class="gallery-item" href="https://lo-be-lab.com/work/narrative-by-design.html" target="_blank" rel="noopener">
+        <img src="images/gallery/proj-nbd-case.jpg" alt="Narrative by Design" loading="lazy">
+        <div class="overlay"><span class="overlay-title">Narrative by Design</span><span class="overlay-desc">Workshop framework</span></div>
+      </a>
+
+      <a class="gallery-item" href="https://www.instagram.com/looperseth/" target="_blank" rel="noopener">
+        <img src="images/gallery/insta-05.jpg" alt="" loading="lazy">
+        <div class="overlay"><span class="overlay-title">@looperseth</span><span class="overlay-desc">Dartmouth College</span></div>
+      </a>
+
+      <!-- Synapse question -->
+      <a class="gallery-item" href="https://www.sethlooper.com/synapse/" target="_blank" rel="noopener">
+        <img src="images/gallery/synapse-q01-energizes.jpg" alt="Synapse Question" loading="lazy">
+        <div class="overlay"><span class="overlay-title">Synapse</span><span class="overlay-desc">Binary choice interface</span></div>
+      </a>
+
+      <a class="gallery-item" href="https://www.instagram.com/looperseth/" target="_blank" rel="noopener">
+        <img src="images/gallery/insta-06.jpg" alt="" loading="lazy">
+        <div class="overlay"><span class="overlay-title">@looperseth</span><span class="overlay-desc">Pine Park</span></div>
+      </a>
+
+      <!-- LooperWorks -->
+      <a class="gallery-item" href="https://looperworks.com" target="_blank" rel="noopener">
+        <img src="images/gallery/proj-looperworks.jpg" alt="LooperWorks" loading="lazy">
+        <div class="overlay"><span class="overlay-title">LooperWorks</span><span class="overlay-desc">Architecture + urban planning</span></div>
+      </a>
+
+      <!-- DartWorld Design Your Life -->
+      <a class="gallery-item" href="https://lo-be-lab.com/work/dartworld.html" target="_blank" rel="noopener">
+        <img src="images/gallery/dartworld-design-life.png" alt="DartWorld Design Your Life" loading="lazy">
+        <div class="overlay"><span class="overlay-title">DartWorld</span><span class="overlay-desc">Design Your Own Adventure</span></div>
+      </a>
+
+      <a class="gallery-item" href="https://www.instagram.com/looperseth/" target="_blank" rel="noopener">
+        <img src="images/gallery/insta-07.jpg" alt="" loading="lazy">
+        <div class="overlay"><span class="overlay-title">@looperseth</span><span class="overlay-desc">Mount Cardigan</span></div>
+      </a>
+
+      <!-- DartWorld -->
+      <a class="gallery-item" href="https://lo-be-lab.com/work/dartworld.html" target="_blank" rel="noopener">
+        <img src="images/gallery/proj-dartworld.jpg" alt="DartWorld" loading="lazy">
+        <div class="overlay"><span class="overlay-title">DartWorld</span><span class="overlay-desc">Gamified career platform</span></div>
+      </a>
+
+      <a class="gallery-item" href="https://www.instagram.com/looperseth/" target="_blank" rel="noopener">
+        <img src="images/gallery/insta-08.jpg" alt="" loading="lazy">
+        <div class="overlay"><span class="overlay-title">@looperseth</span><span class="overlay-desc">Hanover, NH</span></div>
+      </a>
+
+      <!-- Synapse results -->
+      <a class="gallery-item" href="https://www.sethlooper.com/synapse/" target="_blank" rel="noopener">
+        <img src="images/gallery/synapse-results-top.jpg" alt="Synapse Results" loading="lazy">
+        <div class="overlay"><span class="overlay-title">Synapse</span><span class="overlay-desc">Career network results</span></div>
+      </a>
+
+      <a class="gallery-item" href="https://www.instagram.com/looperseth/" target="_blank" rel="noopener">
+        <img src="images/gallery/insta-09.jpg" alt="" loading="lazy">
+        <div class="overlay"><span class="overlay-title">@looperseth</span><span class="overlay-desc">Hanover, NH</span></div>
+      </a>
+
+      <!-- Narrative by Design media -->
+      <a class="gallery-item" href="https://www.sethlooper.com/media/narrative-by-design/" target="_blank" rel="noopener">
+        <img src="images/gallery/proj-nbd-media.jpg" alt="Narrative by Design Film" loading="lazy">
+        <div class="overlay"><span class="overlay-title">Narrative by Design</span><span class="overlay-desc">Media</span></div>
+      </a>
+
+      <a class="gallery-item" href="https://www.instagram.com/looperseth/" target="_blank" rel="noopener">
+        <img src="images/gallery/insta-10.jpg" alt="" loading="lazy">
+        <div class="overlay"><span class="overlay-title">@looperseth</span><span class="overlay-desc">Dartmouth College</span></div>
+      </a>
+
+      <!-- DartWorld events -->
+      <a class="gallery-item" href="https://lo-be-lab.com/work/dartworld.html" target="_blank" rel="noopener">
+        <img src="images/gallery/dartworld-events.png" alt="DartWorld Events" loading="lazy">
+        <div class="overlay"><span class="overlay-title">DartWorld</span><span class="overlay-desc">Upcoming events view</span></div>
+      </a>
+
+      <a class="gallery-item" href="https://www.instagram.com/looperseth/" target="_blank" rel="noopener">
+        <img src="images/gallery/insta-11.jpg" alt="" loading="lazy">
+        <div class="overlay"><span class="overlay-title">@looperseth</span><span class="overlay-desc">Hanover, NH</span></div>
+      </a>
+
+      <!-- Synapse landing -->
+      <a class="gallery-item" href="https://www.sethlooper.com/synapse/" target="_blank" rel="noopener">
+        <img src="images/gallery/synapse-landing.jpg" alt="Synapse Landing" loading="lazy">
+        <div class="overlay"><span class="overlay-title">Synapse</span><span class="overlay-desc">Landing page</span></div>
+      </a>
+
+      <a class="gallery-item" href="https://www.instagram.com/looperseth/" target="_blank" rel="noopener">
+        <img src="images/gallery/insta-12.jpg" alt="" loading="lazy">
+        <div class="overlay"><span class="overlay-title">@looperseth</span><span class="overlay-desc">Hanover, NH</span></div>
+      </a>
+
+      <a class="gallery-item" href="https://www.instagram.com/looperseth/" target="_blank" rel="noopener">
+        <img src="images/gallery/insta-13.jpg" alt="" loading="lazy">
+        <div class="overlay"><span class="overlay-title">@looperseth</span><span class="overlay-desc">Mt. Ascutney</span></div>
+      </a>
+
+      <!-- DartWorld profile -->
+      <a class="gallery-item" href="https://lo-be-lab.com/work/dartworld.html" target="_blank" rel="noopener">
+        <img src="images/gallery/dartworld-profile.png" alt="DartWorld Profile" loading="lazy">
+        <div class="overlay"><span class="overlay-title">DartWorld</span><span class="overlay-desc">Student profile view</span></div>
+      </a>
+
+      <a class="gallery-item" href="https://www.instagram.com/looperseth/" target="_blank" rel="noopener">
+        <img src="images/gallery/insta-14.jpg" alt="" loading="lazy">
+        <div class="overlay"><span class="overlay-title">@looperseth</span><span class="overlay-desc">New Hampshire</span></div>
+      </a>
+
+      <!-- Synapse subjects -->
+      <a class="gallery-item" href="https://www.sethlooper.com/synapse/" target="_blank" rel="noopener">
+        <img src="images/gallery/synapse-q06-subjects.jpg" alt="Synapse Multi-select" loading="lazy">
+        <div class="overlay"><span class="overlay-title">Synapse</span><span class="overlay-desc">Multi-select interface</span></div>
+      </a>
+
+      <a class="gallery-item" href="https://www.instagram.com/looperseth/" target="_blank" rel="noopener">
+        <img src="images/gallery/insta-15.jpg" alt="" loading="lazy">
+        <div class="overlay"><span class="overlay-title">@looperseth</span><span class="overlay-desc">New Hampshire</span></div>
+      </a>
+
+      <a class="gallery-item" href="https://www.instagram.com/looperseth/" target="_blank" rel="noopener">
+        <img src="images/gallery/insta-16.jpg" alt="" loading="lazy">
+        <div class="overlay"><span class="overlay-title">@looperseth</span><span class="overlay-desc">New Hampshire</span></div>
+      </a>
+
+      <a class="gallery-item" href="https://www.instagram.com/looperseth/" target="_blank" rel="noopener">
+        <img src="images/gallery/insta-17.jpg" alt="" loading="lazy">
+        <div class="overlay"><span class="overlay-title">@looperseth</span><span class="overlay-desc">New Hampshire</span></div>
+      </a>
+
+      <!-- Synapse compression -->
+      <a class="gallery-item" href="https://www.sethlooper.com/synapse/" target="_blank" rel="noopener">
+        <img src="images/gallery/synapse-compression.jpg" alt="Synapse Compression" loading="lazy">
+        <div class="overlay"><span class="overlay-title">Synapse</span><span class="overlay-desc">Compression step</span></div>
+      </a>
+
+      <a class="gallery-item" href="https://www.instagram.com/looperseth/" target="_blank" rel="noopener">
+        <img src="images/gallery/insta-18.jpg" alt="" loading="lazy">
+        <div class="overlay"><span class="overlay-title">@looperseth</span><span class="overlay-desc">New Hampshire</span></div>
+      </a>
+
+      <a class="gallery-item" href="https://www.instagram.com/looperseth/" target="_blank" rel="noopener">
+        <img src="images/gallery/insta-19.jpg" alt="" loading="lazy">
+        <div class="overlay"><span class="overlay-title">@looperseth</span><span class="overlay-desc">New Hampshire</span></div>
+      </a>
+
+      <a class="gallery-item" href="https://www.instagram.com/looperseth/" target="_blank" rel="noopener">
+        <img src="images/gallery/insta-20.jpg" alt="" loading="lazy">
+        <div class="overlay"><span class="overlay-title">@looperseth</span><span class="overlay-desc">New Hampshire</span></div>
+      </a>
+
+      <a class="gallery-item" href="https://www.instagram.com/looperseth/" target="_blank" rel="noopener">
+        <img src="images/gallery/insta-21.jpg" alt="" loading="lazy">
+        <div class="overlay"><span class="overlay-title">@looperseth</span><span class="overlay-desc">New Hampshire</span></div>
+      </a>
+
+      <a class="gallery-item" href="https://www.instagram.com/looperseth/" target="_blank" rel="noopener">
+        <img src="images/gallery/insta-22.jpg" alt="" loading="lazy">
+        <div class="overlay"><span class="overlay-title">@looperseth</span><span class="overlay-desc">New Hampshire</span></div>
+      </a>
+
+      <a class="gallery-item" href="https://www.instagram.com/looperseth/" target="_blank" rel="noopener">
+        <img src="images/gallery/insta-23.jpg" alt="" loading="lazy">
+        <div class="overlay"><span class="overlay-title">@looperseth</span><span class="overlay-desc">New Hampshire</span></div>
+      </a>
+
+      <a class="gallery-item" href="https://www.instagram.com/looperseth/" target="_blank" rel="noopener">
+        <img src="images/gallery/insta-24.jpg" alt="" loading="lazy">
+        <div class="overlay"><span class="overlay-title">@looperseth</span><span class="overlay-desc">New Hampshire</span></div>
+      </a>
+
     </div>
   </section>
 
