@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://sethlooper.com/sitemap.xml
+Sitemap: https://looperworks.github.io/seth-looper/sitemap.xml
