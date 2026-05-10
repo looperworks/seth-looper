@@ -156,12 +156,38 @@
       height: 18px;
     }
 
+    .floating-nav .label {
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-mid);
+      margin-bottom: 8px;
+    }
+
+    .floating-nav li + li:not(.spacer):not(.label) {
+      margin-top: 3px;
+    }
+
     .floating-nav a {
-      display: inline-block;
+      display: inline-flex;
+      align-items: baseline;
       color: var(--text);
       border-bottom: 1px solid transparent;
       padding-bottom: 1px;
-      transition: border-color 0.15s;
+      transition: border-color 0.15s, color 0.15s;
+    }
+
+    .floating-nav .num {
+      display: inline-block;
+      width: 22px;
+      color: var(--text-mid);
+      font-variant-numeric: tabular-nums;
+      transition: color 0.15s;
+    }
+
+    .floating-nav a:hover .num,
+    .floating-nav a.active .num {
+      color: var(--text);
     }
 
     .floating-nav a:hover,
@@ -553,11 +579,10 @@
     <ul>
       <li><a href="#top" class="logo">Seth Looper</a></li>
       <li class="spacer"></li>
-      <li><a href="#making">Making</a></li>
-      <li><a href="#tools">Tools</a></li>
-      <li><a href="#teaching">Teaching</a></li>
-      <li class="spacer"></li>
-      <li><a href="#contact">Contact</a></li>
+      <li class="label">Index</li>
+      <li><a href="#making"><span class="num">01</span>Making</a></li>
+      <li><a href="#tools"><span class="num">02</span>Tools</a></li>
+      <li><a href="#teaching"><span class="num">03</span>Teaching</a></li>
     </ul>
   </nav>
 
